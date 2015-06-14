@@ -8,6 +8,17 @@
     <string name="base_navigation_drawer_close">Close</string>
     <string name="episode_details_overview_summary">Summary</string>
     <string name="episode_details_default_name">Da Kool Series</string>
+    <string name="toolbar_title">Series Tracker</string>
+
+    <string name="lorem_ipsum">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. In facilisis, nulla sit amet sagittis suscipit,
+        eros nisi maximus sem, sit amet molestie risus nisi eget ligula.
+        Curabitur interdum quam diam, sed sollicitudin enim vestibulum non.
+        Nulla laoreet luctus dui et laoreet. Phasellus pellentesque arcu orci, non fermentum odio egestas consequat.
+        Fusce placerat eleifend diam, sit amet mattis nulla pulvinar vitae. Vivamus et dui egestas, varius arcu vel, mattis nulla.
+        Nam dolor sapien, fringilla eget enim a, porta consectetur risus. Etiam volutpat dui id metus malesuada, sed consectetur erat fringilla.
+        Suspendisse scelerisque finibus libero scelerisque venenatis.
+    </string>
 
     <!-- TO BE CONTINUED -->
 

@@ -1,4 +1,4 @@
-package com.movile.next.seriestracker;
+package com.movile.next.seriestracker.utils;
 import android.util.Log;
 
 import java.text.DecimalFormat;
