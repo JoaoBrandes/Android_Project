@@ -25,10 +25,6 @@ public class LoadEpisodeAsyncTask extends AsyncTask<Context, Void, Void> {
         return null;
     }
 
-    public Episode getEpisode(){
-        return episode;
-    }
-
     protected void onPostExecute(Void result){
         loader.onEpisodeLoaded(episode);
     }
