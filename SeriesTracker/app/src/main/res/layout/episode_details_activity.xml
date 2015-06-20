@@ -29,7 +29,7 @@
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/default_spacing_large"
+                android:layout_height="wrap_content"
                 android:id="@+id/episode_title"
                 android:layout_alignBottom="@id/screenshot_image"
                 android:text="@string/episode_details_default_name"

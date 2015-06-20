@@ -1,6 +1,8 @@
 package com.movile.next.seriestracker.utils;
 import android.util.Log;
 
+import com.movile.next.seriestracker.R;
+
 import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -16,6 +18,7 @@ public class FormatUtil {
     public static String formatRating(Double rating) {
         DecimalFormat decimalFormat = new DecimalFormat("#.#");
         return decimalFormat.format(rating);
+
     }
 
     public static Date formatDate(String value) {
