@@ -3,6 +3,7 @@ package com.movile.next.seriestracker.activity;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 
@@ -28,9 +29,10 @@ public class SeasonDetailsActivity extends BaseNavigationToolbarActivity impleme
         configureToolbar();
         ListView view = (ListView) findViewById(R.id.list_view);
         View header = findViewById(R.id.season_details_header);
-        view.addHeaderView(header, null, false);
+        //view.addHeaderView(header, null, false);
         adapter = new EpisodeLoaderAdapter(this, this);
         view.setAdapter(adapter);
+
         EpisodeDetailsPresenter client = new EpisodeDetailsPresenter(this, this);
         client.getSeasonDetails(show, season);
     }

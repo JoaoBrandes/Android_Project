@@ -1,6 +1,7 @@
 package com.movile.next.seriestracker.model.interfaces;
 
 import com.movile.next.seriestracker.model.episodeModels.Episode;
+import com.movile.next.seriestracker.model.episodeModels.Show;
 
 import java.util.List;
 
@@ -34,5 +35,14 @@ public interface EpisodeRemoteService {
             @Path("show") String show,
             @Path("season") Long season,
             Callback<List<Episode>> callback);
+
+    @Headers({
+            "trakt-api-version: " + 2,
+            "trakt-api-key: " + "e3241d30014ea9657997695fae248f5369fff759daed9a3400e7b9cffb6f6c62"
+    })
+    @GET("/shows/{show}?extended=full,images")
+    void getShow(
+            @Path("show") String show,
+            Callback<Show> callback);
 
 }
