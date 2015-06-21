@@ -15,7 +15,16 @@
     <dimen name="default_screenshot_height">248dp</dimen>
     <dimen name="card_corner_radius">4dp</dimen>
     <dimen name="card_view_height">64dp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
 
+    <!-- Base Navigation Toolbar -->
+    <dimen name="base_navigation_toolbar_height">56dp</dimen>
+    <dimen name="base_navigation_toolbar_minHeight">@dimen/base_navigation_toolbar_height</dimen>
+
+    <!-- Base Loading -->
+    <dimen name="base_loading_progress_size">48dp</dimen>
     <!-- TO BE CONTINUED -->
 
 </resources>

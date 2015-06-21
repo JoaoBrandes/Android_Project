@@ -1,7 +1,7 @@
-package com.movile.next.seriestracker.view;
+package com.movile.next.seriestracker.activity;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.movile.next.seriestracker.R;
+import com.movile.next.seriestracker.activity.base.BaseLoadingActivity;
+import com.movile.next.seriestracker.activity.base.BaseNavigationToolbarActivity;
 import com.movile.next.seriestracker.model.episodeModels.Episode;
 import com.movile.next.seriestracker.model.episodeModels.Images;
 import com.movile.next.seriestracker.model.interfaces.EpisodeDetailsView;
@@ -17,18 +19,28 @@ import com.movile.next.seriestracker.utils.FormatUtil;
 
 
 import java.util.Date;
+import java.util.List;
 
 
-public class EpisodeDetailsActivity extends ActionBarActivity  implements EpisodeDetailsView {
+public class EpisodeDetailsActivity extends BaseNavigationToolbarActivity implements EpisodeDetailsView {
 
+    public static final String EXTRA_SHOW = "extra_show";
+    public static final String EXTRA_SEASON = "extra_season";
+    public static final String EXTRA_EPISODE = "extra_episode";
+
+
+    private String show;
+    private long season;
+    private long episode;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.episode_details_activity);
-        String show = "game-of-thrones";
-        Long season = Long.valueOf(5);
-        Long episode = Long.valueOf(7);
+        configureToolbar();
+        showLoading();
+
         EpisodeDetailsPresenter client = new EpisodeDetailsPresenter(this, this);
+        getExtras();
         client.getEpisodeDetails(show, season, episode);
     }
 
@@ -51,5 +63,19 @@ public class EpisodeDetailsActivity extends ActionBarActivity  implements Episod
         } else {
             Log.w("Error", "Episode Null");
         }
+
+        hideLoading();
+    }
+
+    @Override
+    public void displaySeason(List<Episode> eps) {
+
+    }
+
+    private void getExtras(){
+        Bundle bundle = getIntent().getExtras();
+        show = bundle.getString(EXTRA_SHOW);
+        season = bundle.getLong(EXTRA_SEASON);
+        episode = bundle.getLong(EXTRA_EPISODE);
     }
 }

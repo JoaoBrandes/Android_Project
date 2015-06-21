@@ -8,6 +8,8 @@ import com.movile.next.seriestracker.model.interfaces.EpisodeRemoteService;
 import com.movile.next.seriestracker.model.loaders.EpisodeLoaderCallback;
 import com.movile.next.seriestracker.presenter.EpisodeDetailsPresenter;
 
+import java.util.List;
+
 import retrofit.Callback;
 import retrofit.RestAdapter;
 import retrofit.RetrofitError;
@@ -38,6 +40,21 @@ public class EpisodeRemoteClient {
             @Override
             public void failure(RetrofitError error) {
                 Log.d("Error", "Failure to recover episode");
+            }
+        });
+    }
+
+    public void getSeasonDetails(String show, Long season) {
+        EpisodeRemoteService service = mAdapter.create(EpisodeRemoteService.class);
+        service.getSeasonDetails(show, season, new Callback<List<Episode>>() {
+            @Override
+            public void success(List<Episode> episodes, Response response) {
+                mCallback.onSeasonDetailsSuccess(episodes);
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                Log.d("Error", "Failure to recover seasons");
             }
         });
     }

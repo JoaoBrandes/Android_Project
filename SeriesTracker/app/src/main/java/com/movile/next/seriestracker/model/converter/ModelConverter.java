@@ -1,8 +1,8 @@
 package com.movile.next.seriestracker.model.converter;
 import com.google.gson.Gson;
-import com.movile.next.seriestracker.model.Episode;
-import com.movile.next.seriestracker.model.Season;
-import com.movile.next.seriestracker.model.Show;
+import com.movile.next.seriestracker.model.episodeModels.Episode;
+import com.movile.next.seriestracker.model.episodeModels.Season;
+import com.movile.next.seriestracker.model.episodeModels.Show;
 
 import java.io.Reader;
 

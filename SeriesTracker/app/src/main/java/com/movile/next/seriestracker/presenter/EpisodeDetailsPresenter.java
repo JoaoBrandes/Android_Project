@@ -12,6 +12,8 @@ import com.movile.next.seriestracker.model.interfaces.EpisodePresenterCallback;
 import com.movile.next.seriestracker.model.loaders.EpisodeLoaderCallback;
 import com.movile.next.seriestracker.model.remote.client.EpisodeRemoteClient;
 
+import java.util.List;
+
 /**
  * Created by movile on 20/06/15.
  */
@@ -30,8 +32,16 @@ public class EpisodeDetailsPresenter implements LoaderManager.LoaderCallbacks<Ep
         view.displayEpisode(episode);
     }
 
+    public void onSeasonDetailsSuccess(List<Episode> eps){
+        view.displaySeason(eps);
+    }
+
     public void getEpisodeDetails(String show, Long season, Long episode){
         client.getEpisodeDetails(show, season, episode);
+    }
+
+    public void getSeasonDetails(String show, Long season){
+        client.getSeasonDetails(show, season);
     }
 //
 //    private String getMockUrl(){
