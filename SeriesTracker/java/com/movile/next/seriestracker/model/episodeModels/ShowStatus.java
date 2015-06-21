@@ -1,4 +1,4 @@
-package com.movile.next.seriestracker.model;
+package com.movile.next.seriestracker.model.episodeModels;
 public enum ShowStatus {
 
     RETURNING("returning series"), PRODUCTION("in production"), CANCELED("canceled"), ENDED("ended");

@@ -1,4 +1,4 @@
-package com.movile.next.seriestracker.model;
+package com.movile.next.seriestracker.model.episodeModels;
 
 import com.google.gson.annotations.SerializedName;
 

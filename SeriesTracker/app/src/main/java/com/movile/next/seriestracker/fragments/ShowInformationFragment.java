@@ -1,4 +1,4 @@
-package com.movile.next.seriestracker.activity.fragments;
+package com.movile.next.seriestracker.fragments;
 
 import android.app.Fragment;
 

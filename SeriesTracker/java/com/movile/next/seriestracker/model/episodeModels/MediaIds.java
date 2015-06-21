@@ -1,4 +1,4 @@
-package com.movile.next.seriestracker.model;
+package com.movile.next.seriestracker.model.episodeModels;
 import java.io.Serializable;
 
 public class MediaIds implements Serializable {
