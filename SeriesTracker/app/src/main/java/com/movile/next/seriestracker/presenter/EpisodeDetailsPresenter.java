@@ -7,6 +7,7 @@ import android.os.Bundle;
 
 import com.movile.next.seriestracker.R;
 import com.movile.next.seriestracker.model.episodeModels.Episode;
+import com.movile.next.seriestracker.model.episodeModels.Season;
 import com.movile.next.seriestracker.model.episodeModels.Show;
 import com.movile.next.seriestracker.model.interfaces.EpisodeDetailsView;
 import com.movile.next.seriestracker.model.interfaces.EpisodePresenterCallback;
@@ -42,12 +43,21 @@ public class EpisodeDetailsPresenter implements LoaderManager.LoaderCallbacks<Ep
 
     }
 
+    @Override
+    public void onShowSeasonsDetailsSuccess(List<Season> seasons) {
+        
+    }
+
     public void getEpisodeDetails(String show, Long season, Long episode){
         client.getEpisodeDetails(show, season, episode);
     }
 
     public void getSeasonDetails(String show, Long season){
         client.getSeasonDetails(show, season);
+    }
+
+    public void getShowSeasons(String show){
+        client.getShowDetails(show);
     }
 //
 //    private String getMockUrl(){

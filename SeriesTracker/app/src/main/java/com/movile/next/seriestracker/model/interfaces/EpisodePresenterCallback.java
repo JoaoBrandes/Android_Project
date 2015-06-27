@@ -1,6 +1,7 @@
 package com.movile.next.seriestracker.model.interfaces;
 
 import com.movile.next.seriestracker.model.episodeModels.Episode;
+import com.movile.next.seriestracker.model.episodeModels.Season;
 import com.movile.next.seriestracker.model.episodeModels.Show;
 
 import java.util.List;
@@ -13,5 +14,7 @@ public interface EpisodePresenterCallback {
 
     void onSeasonDetailsSuccess(List<Episode> episodes);
 
-    void onShowDetailsSuccess(Show show);
+    void onShowSeasonsDetailsSuccess(List<Season> seasons);
+
+    void onPopularShowsSuccess(List<Show> shows);
 }

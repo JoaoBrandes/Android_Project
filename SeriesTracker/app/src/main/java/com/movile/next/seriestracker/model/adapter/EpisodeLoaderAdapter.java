@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.movile.next.seriestracker.R;
 import com.movile.next.seriestracker.model.episodeModels.Episode;
-import com.movile.next.seriestracker.model.interfaces.OnContentClickListener;
+import com.movile.next.seriestracker.model.interfaces.OnEpisodeClickListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,8 +20,8 @@ import java.util.List;
 public class EpisodeLoaderAdapter extends ArrayAdapter<Episode> {
 
     List<Episode> episodesList = new ArrayList<>();
-    OnContentClickListener listener;
-    public EpisodeLoaderAdapter(Context context, OnContentClickListener clickListener) {
+    OnEpisodeClickListener listener;
+    public EpisodeLoaderAdapter(Context context, OnEpisodeClickListener clickListener) {
         super(context, R.layout.activity_season_details);
         listener = clickListener;
     }

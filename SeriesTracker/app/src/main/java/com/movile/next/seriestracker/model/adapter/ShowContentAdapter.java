@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.util.Log;
 
 import com.movile.next.seriestracker.fragments.SeasonDetailsFragment;
 import com.movile.next.seriestracker.fragments.ShowInformationFragment;
@@ -16,8 +17,8 @@ public class ShowContentAdapter extends FragmentPagerAdapter{
     private static final int POSITION_OVERVIEW = 0;
     private static final int POSITION_SEASON   = 1;
 
-    private Show show;
-    public ShowContentAdapter(FragmentManager manager, Show show){
+    private String show;
+    public ShowContentAdapter(FragmentManager manager, String show){
         super(manager);
         this.show = show;
     }
@@ -26,6 +27,7 @@ public class ShowContentAdapter extends FragmentPagerAdapter{
     public Fragment getItem(int position) {
         Fragment fragment;
         Bundle arguments = new Bundle();
+
         if(position == POSITION_OVERVIEW){
             arguments.putSerializable(ShowInformationFragment.EXTRA_SHOW, show);
             fragment = new ShowInformationFragment();
@@ -33,7 +35,9 @@ public class ShowContentAdapter extends FragmentPagerAdapter{
             arguments.putSerializable(SeasonDetailsFragment.EXTRA_SHOW, show);
             fragment = new SeasonDetailsFragment();
         }
+
         fragment.setArguments(arguments);
+
         return fragment;
     }
 

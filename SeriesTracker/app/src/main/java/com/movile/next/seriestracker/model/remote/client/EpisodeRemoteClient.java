@@ -3,6 +3,8 @@ package com.movile.next.seriestracker.model.remote.client;
 import android.util.Log;
 
 import com.movile.next.seriestracker.model.episodeModels.Episode;
+import com.movile.next.seriestracker.model.episodeModels.Season;
+import com.movile.next.seriestracker.model.episodeModels.Show;
 import com.movile.next.seriestracker.model.interfaces.EpisodePresenterCallback;
 import com.movile.next.seriestracker.model.interfaces.EpisodeRemoteService;
 import com.movile.next.seriestracker.model.loaders.EpisodeLoaderCallback;
@@ -55,6 +57,38 @@ public class EpisodeRemoteClient {
             @Override
             public void failure(RetrofitError error) {
                 Log.d("Error", "Failure to recover seasons");
+            }
+        });
+    }
+
+    public void getShowDetails(String show){
+        EpisodeRemoteService service = mAdapter.create(EpisodeRemoteService.class);
+
+        service.getShowSeasons(show, new Callback<List<Season>>() {
+            @Override
+            public void success(List<Season> seasons, Response response) {
+                Log.d("DEBUGANDO", "Success");
+                mCallback.onShowSeasonsDetailsSuccess(seasons);
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                Log.d("Error", "Failure to recover Show seasons." + error.getMessage() + " URL=" + error.getUrl());
+            }
+        });
+    }
+
+    public void getPopularShows(){
+        EpisodeRemoteService service = mAdapter.create(EpisodeRemoteService.class);
+        service.getPopularShows(new Callback<List<Show>>() {
+            @Override
+            public void success(List<Show> shows, Response response) {
+                mCallback.onPopularShowsSuccess(shows);
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                Log.d("Error", "Failure to recover Show seasons."+error.getMessage()+" URL=" + error.getUrl());
             }
         });
     }

@@ -13,6 +13,7 @@ import com.movile.next.seriestracker.activity.base.BaseLoadingActivity;
 import com.movile.next.seriestracker.activity.base.BaseNavigationToolbarActivity;
 import com.movile.next.seriestracker.model.episodeModels.Episode;
 import com.movile.next.seriestracker.model.episodeModels.Images;
+import com.movile.next.seriestracker.model.episodeModels.Season;
 import com.movile.next.seriestracker.model.interfaces.EpisodeDetailsView;
 import com.movile.next.seriestracker.presenter.EpisodeDetailsPresenter;
 import com.movile.next.seriestracker.utils.FormatUtil;
@@ -38,7 +39,6 @@ public class EpisodeDetailsActivity extends BaseNavigationToolbarActivity implem
         setContentView(R.layout.episode_details_activity);
         configureToolbar();
         showLoading();
-
         EpisodeDetailsPresenter client = new EpisodeDetailsPresenter(this, this);
         getExtras();
         client.getEpisodeDetails(show, season, episode);
@@ -69,6 +69,11 @@ public class EpisodeDetailsActivity extends BaseNavigationToolbarActivity implem
 
     @Override
     public void displaySeason(List<Episode> eps) {
+
+    }
+
+    @Override
+    public void displaySeasonList(List<Season> seasons) {
 
     }
 

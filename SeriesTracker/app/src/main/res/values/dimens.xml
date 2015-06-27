@@ -26,5 +26,7 @@
     <!-- Base Loading -->
     <dimen name="base_loading_progress_size">48dp</dimen>
     <!-- TO BE CONTINUED -->
+    <dimen name="show_item_container_padding">10dp</dimen>
+    <dimen name="show_item_container_width">170dp</dimen>
 
 </resources>

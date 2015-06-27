@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/season_item_thumb"
+            android:background="@drawable/season_details_show_placeholder"/>
+        <TextView
+            android:id="@+id/season_item_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TEMPORADA 0"/>
+        <TextView
+            android:id="@+id/season_item_episodes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10 EPISODIOS"/>
+    </LinearLayout>
+    </android.support.v7.widget.CardView>

@@ -1,9 +1,7 @@
 package com.movile.next.seriestracker.activity;
 
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 
@@ -11,17 +9,18 @@ import com.movile.next.seriestracker.R;
 import com.movile.next.seriestracker.activity.base.BaseNavigationToolbarActivity;
 import com.movile.next.seriestracker.model.adapter.EpisodeLoaderAdapter;
 import com.movile.next.seriestracker.model.episodeModels.Episode;
+import com.movile.next.seriestracker.model.episodeModels.Season;
 import com.movile.next.seriestracker.model.interfaces.EpisodeDetailsView;
-import com.movile.next.seriestracker.model.interfaces.OnContentClickListener;
+import com.movile.next.seriestracker.model.interfaces.OnEpisodeClickListener;
 import com.movile.next.seriestracker.presenter.EpisodeDetailsPresenter;
 
 import java.util.List;
 
-public class SeasonDetailsActivity extends BaseNavigationToolbarActivity implements OnContentClickListener, EpisodeDetailsView {
+public class SeasonDetailsActivity extends BaseNavigationToolbarActivity implements OnEpisodeClickListener, EpisodeDetailsView {
     private EpisodeLoaderAdapter adapter;
 
-    private String show = "house";
-    private Long season = 1l;
+    private String show;
+    private Long season;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,9 +31,15 @@ public class SeasonDetailsActivity extends BaseNavigationToolbarActivity impleme
         //view.addHeaderView(header, null, false);
         adapter = new EpisodeLoaderAdapter(this, this);
         view.setAdapter(adapter);
-
+        getExtras();
         EpisodeDetailsPresenter client = new EpisodeDetailsPresenter(this, this);
         client.getSeasonDetails(show, season);
+    }
+
+    private void getExtras(){
+        Bundle bundle = getIntent().getExtras();
+        show = bundle.getString(EpisodeDetailsActivity.EXTRA_SHOW);
+        season = bundle.getLong(EpisodeDetailsActivity.EXTRA_SEASON);
     }
 
     @Override
@@ -45,6 +50,11 @@ public class SeasonDetailsActivity extends BaseNavigationToolbarActivity impleme
     @Override
     public void displaySeason(List<Episode> eps) {
         adapter.updateEpisodesList(eps);
+    }
+
+    @Override
+    public void displaySeasonList(List<Season> seasons) {
+
     }
 
     @Override

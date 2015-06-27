@@ -7,6 +7,7 @@ import android.os.Bundle;
 
 import com.movile.next.seriestracker.R;
 import com.movile.next.seriestracker.model.episodeModels.Episode;
+import com.movile.next.seriestracker.model.episodeModels.Season;
 import com.movile.next.seriestracker.model.episodeModels.Show;
 import com.movile.next.seriestracker.model.interfaces.EpisodeDetailsView;
 import com.movile.next.seriestracker.model.interfaces.EpisodePresenterCallback;
@@ -24,13 +25,14 @@ public class ShowDetailsPresenter implements LoaderManager.LoaderCallbacks<Episo
     private Context context;
     private EpisodeRemoteClient client;
 
-    public ShowDetailsPresenter( Context context, ShowDetailsView view){
+    public ShowDetailsPresenter( Context context, ShowDetailsView view) {
         this.view = view;
         this.context = context;
-        client = new EpisodeRemoteClient( context.getString(R.string.api_url_base), this);
+        client =  new EpisodeRemoteClient( context.getString(R.string.api_url_base), this);
     }
 
     public void loadShow(String show){
+        client.getShowDetails(show);
 
     }
 
@@ -47,6 +49,11 @@ public class ShowDetailsPresenter implements LoaderManager.LoaderCallbacks<Episo
     @Override
     public void onShowDetailsSuccess(Show show) {
 
+    }
+
+    @Override
+    public void onShowSeasonsDetailsSuccess(List<Season> seasons) {
+        view.displaySeasons(seasons);
     }
 
     @Override
