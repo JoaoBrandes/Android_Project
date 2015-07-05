@@ -29,8 +29,14 @@
     <color name="base_navigation_toolbar_background">@color/default_color_first</color>
     <color name="base_navigation_toolbar_transparent_background">#88333333</color>
 
+    <!-- Base Navigation Drawer -->
+    <color name="base_navigation_drawer_content_background">@color/default_background_second</color>
+
     <!-- Base Loading -->
     <color name="base_loading_container_background">#99333333</color>
     <!-- TO BE CONTINUED -->
+
+    <color name="favorite_icon_on">#f57c00</color>
+    <color name="favorite_icon_off">#9b9b9b</color>
 
 </resources>

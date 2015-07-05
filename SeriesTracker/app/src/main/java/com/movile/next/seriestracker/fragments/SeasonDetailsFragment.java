@@ -31,7 +31,6 @@ public class SeasonDetailsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         return inflater.inflate(R.layout.show_seasons_fragment, container, false);
     }
 }
